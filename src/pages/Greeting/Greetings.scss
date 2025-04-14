@@ -1,0 +1,51 @@
+@use "../../styles/style.scss" as *;
+
+.greeting {
+  &__content {
+    padding-bottom: 80px;
+    min-height: 100vh;
+
+    @include flexible();
+    flex-direction: column;
+    gap: 50px;
+
+    position: relative;
+
+    background: $color3;
+    color: $white;
+
+    opacity: 0;
+  }
+  &__link {
+    @include btnReset();
+    @include flexible();
+    width: 50px;
+    height: 50px;
+    align-self: flex-end;
+    margin-right: 4%;
+  }
+
+  &__hearticon {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    path {
+      fill: $color3;
+    }
+  }
+
+  &__arrowicon {
+    @include flexible();
+    width: inherit;
+    height: inherit;
+    path {
+      stroke: $white;
+    }
+  }
+
+  &__h1{
+    @include textReset();
+    text-align: center;
+  }
+}

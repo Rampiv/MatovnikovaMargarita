@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client"
-// import App from "./App"
+import App from "./App"
 import { BrowserRouter } from "react-router"
 import { StrictMode } from "react"
 
@@ -11,7 +11,7 @@ if (container) {
   root.render(
     <StrictMode>
       <BrowserRouter basename={'/MatovnikovaMargarita'}>
-        {/* <App /> */}
+        <App />
       </BrowserRouter>
     </StrictMode>,
   )

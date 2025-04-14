@@ -5,7 +5,7 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@ui-kit/*": ["./src/ui-kit/*"],
+      "@kit/*": ["./src/kit/*"],
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./src/assets/*"]
     }

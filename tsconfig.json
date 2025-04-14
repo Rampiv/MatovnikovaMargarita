@@ -16,7 +16,7 @@
     "jsx": "react-jsx",
     "types": ["vitest/globals"],
     "paths": {
-      "@ui-kit/*": ["./src/ui-kit/*"],
+      "@kit/*": ["./src/kit/*"],
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./src/assets/*"],
       "@contexts/*": ["./src/contexts/*"],
