@@ -5,6 +5,8 @@ interface AppContextProps {
   setHeaderVisible: (headerVisible: boolean) => void
   route: string
   setRoute: (route: string) => void
+  isMenuOpen: boolean
+  toggleMenu: (isMenuOpen: boolean) => void
 }
 
 type Props = {
@@ -16,11 +18,14 @@ export const AppContext = createContext<AppContextProps>({
   setHeaderVisible: () => {},
   route: "/",
   setRoute: () => {},
+  isMenuOpen: false,
+  toggleMenu: () => {},
 })
 
 export const AppContextProvider = ({ children }: Props) => {
   const [headerVisible, setHeaderVisible] = useState(false)
   const [route, setRoute] = useState("")
+  const [isMenuOpen, toggleMenu] = useState(false)
 
   return (
     <AppContext.Provider
@@ -29,6 +34,8 @@ export const AppContextProvider = ({ children }: Props) => {
         setHeaderVisible,
         route,
         setRoute,
+        isMenuOpen,
+        toggleMenu,
       }}
     >
       {children}

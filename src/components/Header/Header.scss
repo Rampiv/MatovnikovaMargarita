@@ -1,5 +1,64 @@
 @use "../../styles/style.scss" as *;
 
 .navigation {
-  background: $color1;
+  position: relative;
+  width: 100%;
+  min-height: 60px;
+  padding: 5px 10px;
+  &__list {
+    @include listReset();
+    @include flexible();
+    padding: 40px 40px 40px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    gap: 15px;
+    min-height: 120px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    min-height: 100vh;
+    box-shadow: -30px 0px 100px;
+    background-color: $color3;
+    display: none;
+  }
+  &__link {
+    @include flexible();
+    @include standartTransition();
+    position: relative;
+    padding: 5px 10px;
+    width: fit-content;
+    outline: none;
+    @media (hover) {
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+    &:focus,
+    &:active {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+  &__icon {
+    position: absolute;
+    z-index: 0;
+    height: 150px;
+    width: 140%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__text {
+    z-index: 1;
+    color: $white;
+  }
+  &__background {
+    position: absolute;
+    width: 153%;
+    top: 11%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
