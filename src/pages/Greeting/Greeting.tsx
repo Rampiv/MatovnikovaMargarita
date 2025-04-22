@@ -9,12 +9,15 @@ import {
   GreetingExitAnimation,
 } from "@kit/GreetingAnimation"
 import { AppContext } from "../../context/contextProvider"
+import { CatAnimation } from "../../components/ui-kit"
+import type { LottieRefCurrentProps } from "lottie-react"
 
 gsap.registerPlugin(useGSAP)
 
 export const Greeting = () => {
   const greeting = useRef<HTMLDivElement>(null)
   const HeartIconRef = useRef<SVGSVGElement>(null)
+  const CatRef = useRef<LottieRefCurrentProps>(null)
   const ArrowIconRef = useRef<SVGSVGElement>(null)
 
   const greetingContentRef = useRef<HTMLDivElement>(null)
@@ -28,6 +31,7 @@ export const Greeting = () => {
       GreetingAnimation({
         heartIconRef: HeartIconRef,
         greetingContentRef: greetingContentRef,
+        catRef: CatRef
       })
     },
     { scope: greeting },
@@ -46,9 +50,10 @@ export const Greeting = () => {
   }, [setRoute])
 
   return (
-    <div className="greeting" ref={greeting}>
+    <section className="greeting" ref={greeting}>
       <div className="container">
         <HeartIcon className="greeting__hearticon" refProp={HeartIconRef} />
+        <CatAnimation refProp={CatRef}/>
         <div
           className="greeting__content content-common"
           ref={greetingContentRef}
@@ -61,6 +66,6 @@ export const Greeting = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

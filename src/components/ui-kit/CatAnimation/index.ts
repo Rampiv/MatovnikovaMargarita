@@ -1,0 +1,1 @@
+export { CatAnimation } from "./CatAnimation"

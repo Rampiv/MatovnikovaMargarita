@@ -5,7 +5,6 @@ import { Link } from "react-router"
 import { HamburgerButton } from "../ui-kit"
 import { useGSAP } from "@gsap/react"
 import { BurgerAnimationOff, BurgerAnimationOn } from "@kit/BurgerAnimation"
-import useOnClickOutside from "../../hooks/useOnClickOutside"
 
 export const Header = () => {
   const { route, isMenuOpen, toggleMenu } = useContext(AppContext)
@@ -46,21 +45,17 @@ export const Header = () => {
         })
   }, [isMenuOpen])
 
-  useOnClickOutside(navigationRef, () => {
-    // Only if menu is open
-    if (isMenuOpen) {
-      toggleMenu(!isMenuOpen);
-    }
-  });
-
   return (
     <nav className={navClassName}>
       <HamburgerButton />
-
       <ul className="navigation__list" ref={navigationRef}>
         {navItems.map(item => (
           <li className="navigation__item" key={`${item.to} ${item.text}`}>
-            <Link to={item.to} className="navigation__link">
+            <Link
+              to={item.to}
+              className="navigation__link"
+              onClick={() => toggleMenu(false)}
+            >
               <span className="navigation__text">{item.text}</span>
             </Link>
           </li>
