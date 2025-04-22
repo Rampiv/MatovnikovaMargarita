@@ -11,7 +11,7 @@
 
     position: relative;
 
-    background: $color3;
+    background: $color1;
     color: $white;
 
     opacity: 0;
@@ -33,7 +33,7 @@
     transform: translate(50%, -50%);
     z-index: 1;
     path {
-      fill: $color3;
+      fill: $color2;
     }
   }
 
