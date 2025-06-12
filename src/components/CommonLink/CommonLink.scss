@@ -7,6 +7,8 @@
   &__link {
     @include flexible();
 
+    padding: 10px;
+
     border: none;
     border-radius: 15px;
 
@@ -15,8 +17,8 @@
     width: 100%;
 
     background-color: $color4;
-  }
-  &__text {
+
     font-family: "Marutya", "sans-serif";
+    text-align: center;
   }
 }

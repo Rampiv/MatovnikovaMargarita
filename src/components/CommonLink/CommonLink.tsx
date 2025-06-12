@@ -11,7 +11,7 @@ export const CommonLink = ({data}: Props) => {
   return (
     <div className="common-link">
       <Link to={data.link} className="common-link__link">
-        <span className="common-link__text">{data.text}</span>
+        {data.text}
       </Link>
     </div>
   )
