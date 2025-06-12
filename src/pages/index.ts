@@ -1,2 +1,7 @@
 export { Greeting } from "./Greeting"
 export { MainPage } from "./MainPage"
+export { AboutPage } from "./AboutPage"
+export { EducationPage } from "./EducationPage"
+export { CompetencePage } from "./CompetencePage"
+export { PaymentPage } from "./PaymentPage"
+export { ContactsPage } from "./ContactsPage"

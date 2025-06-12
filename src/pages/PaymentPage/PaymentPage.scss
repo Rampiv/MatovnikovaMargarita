@@ -1,0 +1,24 @@
+@use "../../styles/style.scss" as *;
+
+.payment {
+  padding: 20px;
+  &__descr{
+    margin-bottom: 3%
+  }
+  &__list {
+    @include listReset();
+    @include flexible();
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__item {
+    margin-bottom: 2%;
+  }
+
+  &__personal, &__couples, &__attention {
+    @include flexible();
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,25 +1,33 @@
-import { useContext } from "react"
+import { useContext, forwardRef } from "react"
 import { AppContext } from "../../../context/contextProvider"
-import "./HamburgerButtom.scss"
+import "./HamburgerButton.scss"
 
-export const HamburgerButton = () => {
-  const { isMenuOpen, toggleMenu } = useContext(AppContext)
+interface HamburgerButtonProps extends React.ComponentPropsWithoutRef<"button"> {}
 
-  const clickHandler = () => {
-    toggleMenu(!isMenuOpen)
+export const HamburgerButton = forwardRef<HTMLButtonElement, HamburgerButtonProps>(
+  (props, ref) => {
+    const { isMenuOpen, toggleMenu } = useContext(AppContext)
+
+    const clickHandler = () => {
+      toggleMenu(!isMenuOpen)
+    }
+
+    return (
+      <button
+        ref={ref}
+        className={["hamburger", `${isMenuOpen ? "active" : ""}`]
+          .join(" ")
+          .trim()}
+        aria-label="Открыть главное меню"
+        onClick={clickHandler}
+        {...props}
+      >
+        <span className="hamburger__span" />
+        <span className="hamburger__span" />
+        <span className="hamburger__span" />
+      </button>
+    )
   }
+)
 
-  return (
-    <button
-      className={["hamburger", `${isMenuOpen ? "active" : ""}`]
-        .join(" ")
-        .trim()}
-      aria-label="Открыть главное меню"
-      onClick={clickHandler}
-    >
-      <span className="hamburger__span" />
-      <span className="hamburger__span" />
-      <span className="hamburger__span" />
-    </button>
-  )
-}
+HamburgerButton.displayName = "HamburgerButton"

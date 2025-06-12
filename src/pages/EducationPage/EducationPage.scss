@@ -1,0 +1,15 @@
+@use "../../styles/style.scss" as *;
+
+.education {
+  padding: 20px;
+  &__list {
+    @include listReset();
+    @include flexible();
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__item {
+    margin-bottom: 3%;
+  }
+}

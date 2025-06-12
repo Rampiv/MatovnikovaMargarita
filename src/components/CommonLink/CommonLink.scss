@@ -1,0 +1,22 @@
+@use "../../styles/style.scss" as *;
+
+.common-link {
+  @include flexible();
+  padding-top: 3%;
+
+  &__link {
+    @include flexible();
+
+    border: none;
+    border-radius: 15px;
+
+    min-height: 50px;
+    max-width: 50%;
+    width: 100%;
+
+    background-color: $color4;
+  }
+  &__text {
+    font-family: "Marutya", "sans-serif";
+  }
+}

@@ -1,2 +1,5 @@
 export { HeartIcon } from "./HeartIcon"
 export { ArrowIcon } from "./ArrowIcon"
+export { VkIcon } from "./VkIcon"
+export { TgIcon } from "./TgIcon"
+export { InstagramIcon } from "./InstagramIcon"

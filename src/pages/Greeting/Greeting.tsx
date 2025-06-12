@@ -31,7 +31,7 @@ export const Greeting = () => {
       GreetingAnimation({
         heartIconRef: HeartIconRef,
         greetingContentRef: greetingContentRef,
-        catRef: CatRef
+        catRef: CatRef,
       })
     },
     { scope: greeting },
@@ -51,20 +51,18 @@ export const Greeting = () => {
 
   return (
     <section className="greeting" ref={greeting}>
-      <div className="container">
-        <HeartIcon className="greeting__hearticon" refProp={HeartIconRef} />
-        <CatAnimation refProp={CatRef}/>
-        <div
-          className="greeting__content content-common"
-          ref={greetingContentRef}
-        >
-          <h1 className="h1 greeting__h1">
-            Это лучшее время, чтобы начать что-то делать
-          </h1>
-          <button className="greeting__link" onClick={onClick}>
-            <ArrowIcon className="greeting__arrowicon" refProp={ArrowIconRef} />
-          </button>
-        </div>
+      <HeartIcon className="greeting__hearticon" refProp={HeartIconRef} />
+      <CatAnimation refProp={CatRef} />
+      <div
+        className="greeting__content content-common"
+        ref={greetingContentRef}
+      >
+        <h1 className="h1 greeting__h1">
+          Это лучшее время, чтобы начать что-то делать
+        </h1>
+        <button className="greeting__link" onClick={onClick}>
+          <ArrowIcon className="greeting__arrowicon" refProp={ArrowIconRef} />
+        </button>
       </div>
     </section>
   )

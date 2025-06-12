@@ -1,0 +1,1 @@
+export { CompetencePage } from "./CompetencePage"

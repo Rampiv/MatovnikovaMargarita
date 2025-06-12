@@ -1,17 +1,41 @@
-@use '../../styles/style.scss' as *;
+@use "../../styles/style.scss" as *;
 .mainpage {
-    padding: 20px;
-    &__h1{
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    &__descr {
-        margin-bottom: 10px;
+  padding: 20px;
+  &__descr {
+    text-align: center;
+    margin-bottom: 3%;
 
-        &-name{
-           color: $color3;
-           font-weight: bold;
-           font-size: 1.3em;
-        }
+    &:last-of-type {
+      margin-bottom: 30px;
     }
+
+    &-name {
+      color: $color3;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
+  }
+
+  &__list {
+    @include listReset();
+
+    font-family: "Marutya";
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__item {
+    @include flexible();
+
+    border: none;
+    border-radius: 15px;
+    
+    min-height: 50px;
+    max-width: calc(50% - 5px);
+    width: 100%;
+
+    background-color: $color4;
+  }
 }

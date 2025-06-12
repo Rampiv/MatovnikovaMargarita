@@ -40,14 +40,27 @@ export const GreetingAnimation = ({
       scale: 100,
       duration: 0.5,
     })
-    .to(catRef.current?.animationContainerRef.current || {}, {
-      opacity: 0,
-      duration: .3
-    }, '>-0.1')
-    .to(greetingContentRef.current, {
-      opacity: 1,
-      duration: 1,
-    }, '>-0.5')
+    .to(
+      catRef.current?.animationContainerRef.current || {},
+      {
+        opacity: 0,
+        duration: 0.3,
+      },
+      ">-0.1",
+    )
+    .to(
+      greetingContentRef.current,
+      {
+        opacity: 1,
+        duration: 1,
+        onComplete: () => {
+          if (heartIconRef.current) {
+            heartIconRef.current.style.display = "none"
+          }
+        },
+      },
+      ">-0.5",
+    )
 
   return tl
 }
@@ -62,7 +75,7 @@ export const GreetingExitAnimation = ({
   })
 
   tl.to(arrowIconRef.current, {
-    x: 100,
+    x: 200,
     duration: 0.25,
   }).to(greetingContentRef.current, {
     opacity: 0,
