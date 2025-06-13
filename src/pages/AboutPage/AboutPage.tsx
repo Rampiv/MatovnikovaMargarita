@@ -33,21 +33,6 @@ export const AboutPage = () => {
     { scope: containerRef },
   )
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const target = e.currentTarget as HTMLAnchorElement
-    const href = target.getAttribute('href') || '/'
-
-    // Обратная анимация
-    if (tl.current) {
-      tl.current.reverse().then(() => {
-        window.location.href = href
-      })
-    } else {
-      window.location.href = href
-    }
-  }
-
   const descriptionLines = [
     "Friendly.",
     "В работе ценю бережность и принятие человека таким, какой он есть.",
@@ -88,7 +73,6 @@ export const AboutPage = () => {
             text: "Образование и деятельность",
           }}
           linkRef={linkRef}
-          onClick={handleLinkClick}
         />
       </div>
     </section>

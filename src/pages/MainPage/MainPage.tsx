@@ -29,31 +29,19 @@ export const MainPage = () => {
       { to: "/payment", text: "Оплата" },
       { to: "/contacts", text: "Контакты" },
     ],
-    []
+    [],
   )
 
-  useGSAP(() => {
-    tl.current = ContentAnimation({
-      h1Ref,
-      listItemsRef,
-      descrRefs,
-    })
-  }, { scope: containerRef })
-
-  const handleLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const target = e.currentTarget as HTMLAnchorElement
-    const href = target.getAttribute('href') || '/'
-
-    // Обратная анимация
-    if (tl.current) {
-      tl.current.reverse().then(() => {
-        window.location.href = href
+  useGSAP(
+    () => {
+      tl.current = ContentAnimation({
+        h1Ref,
+        listItemsRef,
+        descrRefs,
       })
-    } else {
-      window.location.href = href
-    }
-  }
+    },
+    { scope: containerRef },
+  )
 
   const addToDescrRefs = (el: HTMLParagraphElement | null, index: number) => {
     if (el) descrRefs.current[index] = el
@@ -66,26 +54,28 @@ export const MainPage = () => {
   return (
     <section className="mainpage">
       <div className="container" ref={containerRef}>
-        <h1 className="h1" ref={h1Ref}>Рада видеть вас на моей странице!</h1>
-        
+        <h1 className="h1" ref={h1Ref}>
+          Рада видеть вас на моей странице!
+        </h1>
+
         <p className="mainpage__descr" ref={el => addToDescrRefs(el, 0)}>
           Меня зовут{" "}
           <span className="mainpage__descr-name">
             Матовникова Маргарита Вадимовна
           </span>
         </p>
-        
+
         <p className="mainpage__descr" ref={el => addToDescrRefs(el, 1)}>
           Этот сайт создан, чтобы вы могли заранее узнать, как я работаю и с
           какими запросами помогаю.
         </p>
-        
+
         <p className="mainpage__descr" ref={el => addToDescrRefs(el, 2)}>
           Для навигации{" "}
           <strong>нажмите кнопку меню в верхнем левом углу</strong> или с
           помощью блоков снизу
         </p>
-        
+
         <p className="mainpage__descr" ref={el => addToDescrRefs(el, 3)}>
           Если у вас останутся вопросы после просмотра сайта — буду рада
           ответить на них во время нашей первой встречи.
@@ -93,16 +83,12 @@ export const MainPage = () => {
 
         <ul className="mainpage__list">
           {navItems.map((item, index) => (
-            <li 
-              className="mainpage__item" 
+            <li
+              className="mainpage__item"
               key={`${item.to} ${item.text}`}
               ref={el => addToListRefs(el, index)}
             >
-              <Link 
-                to={item.to} 
-                className="mainpage__link"
-                onClick={handleLinkClick}
-              >
+              <Link to={item.to} className="mainpage__link">
                 <span className="mainpage__text">{item.text}</span>
               </Link>
             </li>

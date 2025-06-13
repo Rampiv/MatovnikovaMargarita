@@ -28,21 +28,6 @@ export const EducationPage = () => {
     { scope: containerRef },
   )
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const target = e.currentTarget
-    const href = target.getAttribute("href") || "/"
-
-    // Обратная анимация
-    if (tl.current) {
-      tl.current.reverse().then(() => {
-        window.location.href = href
-      })
-    } else {
-      window.location.href = href
-    }
-  }
-
   const addToListRefs = (el: HTMLLIElement | null, index: number) => {
     if (el) listItemsRef.current[index] = el
   }
@@ -139,7 +124,6 @@ export const EducationPage = () => {
               text: "Компетенции",
             }}
             linkRef={linkRef}
-            onClick={handleLinkClick}
           />
         </div>
       </div>

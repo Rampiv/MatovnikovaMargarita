@@ -34,21 +34,6 @@ export const CompetencePage = () => {
     { scope: containerRef },
   )
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const target = e.currentTarget as HTMLAnchorElement
-    const href = target.getAttribute("href") || "/"
-
-    // Обратная анимация
-    if (tl.current) {
-      tl.current.reverse().then(() => {
-        window.location.href = href
-      })
-    } else {
-      window.location.href = href
-    }
-  }
-
   const addToDescrRefs = (el: HTMLParagraphElement | null, index: number) => {
     if (el) descrRefs.current[index] = el
   }
@@ -116,7 +101,6 @@ export const CompetencePage = () => {
               text: "Стоимость и порядок оплаты",
             }}
             linkRef={linkRef}
-            onClick={handleLinkClick}
           />
         </div>
       </div>
