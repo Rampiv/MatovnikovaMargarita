@@ -69,7 +69,12 @@ body {
   margin-bottom: 5%;
 }
 
+section {
+  padding: 60px 20px 20px;
+}
+
 .App {
+  overflow: hidden;
   @media (max-width: 320px) {
     & {
       width: 320px;
@@ -77,5 +82,7 @@ body {
   }
 }
 
+
+
 // z-index
-// 99 - header
+// 100 - navigation

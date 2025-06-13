@@ -16,7 +16,7 @@ export const BurgerAnimationOn = ({ elementRef }: BurgerAnimationProps) => {
       x: 300,
       duration: 1,
     },
-    { x: 10 },
+    { x: 10},
   ).to(
     elementRef.current,
     {

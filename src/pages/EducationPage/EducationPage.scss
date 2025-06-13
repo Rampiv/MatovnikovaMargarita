@@ -1,7 +1,6 @@
 @use "../../styles/style.scss" as *;
 
 .education {
-  padding: 20px;
   &__list {
     @include listReset();
     @include flexible();

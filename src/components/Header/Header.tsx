@@ -1,15 +1,43 @@
-import { useContext, useMemo, useRef, useEffect } from "react"
+import { useContext, useMemo, useRef, useEffect, useState } from "react"
 import { AppContext } from "../../context/contextProvider"
 import "./Header.scss"
 import { Link } from "react-router"
 import { HamburgerButton } from "../ui-kit"
+import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { BurgerAnimationOff, BurgerAnimationOn } from "@kit/BurgerAnimation"
+
+gsap.registerPlugin(ScrollTrigger)
+
+const navItems = [
+  { to: "/about", text: "Обо мне" },
+  {
+    to: "/education",
+    text: "Образование",
+  },
+  {
+    to: "/competence",
+    text: "Компетенции",
+  },
+  { to: "/payment", text: "Оплата" },
+  { to: "/contacts", text: "Контакты" },
+]
+
+const insignificantItems = [
+  { to: "/", text: "↩ Котик" },
+  {
+    to: "/main",
+    text: "↩ Приветствие",
+  },
+]
 
 export const Header = () => {
   const { route, isMenuOpen, toggleMenu } = useContext(AppContext)
   const navigationRef = useRef<HTMLUListElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
+
+  const [isScrolled, setIsScrolled] = useState(false)
 
   // Мемоизация класса навигации
   const navClassName = useMemo(
@@ -17,34 +45,17 @@ export const Header = () => {
     [route],
   )
 
-  // Мемоизация элементов навигации
-  const navItems = useMemo(
-    () => [
-      { to: "/about", text: "Обо мне" },
-      {
-        to: "/education",
-        text: "Образование",
-      },
-      {
-        to: "/competence",
-        text: "Компетенции",
-      },
-      { to: "/payment", text: "Оплата" },
-      { to: "/contacts", text: "Контакты" },
-    ],
-    [],
-  )
+  // Эффект для отслеживания скролла
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop
+      setIsScrolled(scrollPosition > 50) // Изменяем состояние при скролле > 50px
+    }
 
-  const insignificantItems = useMemo(
-    () => [
-      { to: "/", text: "↩ Котик" },
-      {
-        to: "/main",
-        text: "↩ Приветствие",
-      },
-    ],
-    [],
-  )
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useGSAP(() => {
     isMenuOpen
@@ -55,6 +66,17 @@ export const Header = () => {
           elementRef: navigationRef,
         })
   }, [isMenuOpen])
+
+  useGSAP(() => {
+    if (hamburgerRef.current) {
+      gsap.to(hamburgerRef.current, {
+        opacity: isScrolled ? 0 : 1,
+        display: isScrolled ? "none" : "block",
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+    }
+  }, [isScrolled])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
