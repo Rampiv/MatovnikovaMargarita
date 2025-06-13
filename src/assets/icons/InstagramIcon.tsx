@@ -15,21 +15,7 @@ export const InstagramIcon = ({ className, refProp }: Prop) => {
       className={`${className}`}
       ref={refProp}
     >
-      <radialGradient
-        id="TGwjmZMm2W~B4yrgup6jda_119026_gr1"
-        cx="32"
-        cy="32.5"
-        r="31.259"
-        gradientTransform="matrix(1 0 0 -1 0 64)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stop-color="#efdcb1"></stop>
-        <stop offset="0" stop-color="#f2e0bb"></stop>
-        <stop offset=".011" stop-color="#f2e0bc"></stop>
-        <stop offset=".362" stop-color="#f9edd2"></stop>
-        <stop offset=".699" stop-color="#fef4df"></stop>
-        <stop offset="1" stop-color="#fff7e4"></stop>
-      </radialGradient>
+
       <path
         fill="url(#TGwjmZMm2W~B4yrgup6jda_119026_gr1)"
         d="M58,54c-1.1,0-2-0.9-2-2s0.9-2,2-2h2.5c1.9,0,3.5-1.6,3.5-3.5S62.4,43,60.5,43H50c-1.4,0-2.5-1.1-2.5-2.5	S48.6,38,50,38h8c1.7,0,3-1.3,3-3s-1.3-3-3-3H42v-6h18c2.3,0,4.2-2,4-4.4c-0.2-2.1-2.1-3.6-4.2-3.6H58c-1.1,0-2-0.9-2-2s0.9-2,2-2	h0.4c1.3,0,2.5-0.9,2.6-2.2c0.2-1.5-1-2.8-2.5-2.8h-14C43.7,9,43,8.3,43,7.5S43.7,6,44.5,6h3.9c1.3,0,2.5-0.9,2.6-2.2	C51.1,2.3,50,1,48.5,1H15.6c-1.3,0-2.5,0.9-2.6,2.2C12.9,4.7,14,6,15.5,6H19c1.1,0,2,0.9,2,2s-0.9,2-2,2H6.2c-2.1,0-4,1.5-4.2,3.6	C1.8,16,3.7,18,6,18h2.5c1.9,0,3.5,1.6,3.5,3.5S10.4,25,8.5,25H5.2c-2.1,0-4,1.5-4.2,3.6C0.8,31,2.7,33,5,33h17v11H6	c-1.7,0-3,1.3-3,3s1.3,3,3,3l0,0c1.1,0,2,0.9,2,2s-0.9,2-2,2H4.2c-2.1,0-4,1.5-4.2,3.6C-0.2,60,1.7,62,4,62h53.8	c2.1,0,4-1.5,4.2-3.6C62.2,56,60.3,54,58,54z"
@@ -42,17 +28,17 @@ export const InstagramIcon = ({ className, refProp }: Prop) => {
         gradientTransform="matrix(.6435 -.7654 .5056 .4251 -26.92 52.282)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset=".073" stop-color="#eacc7b"></stop>
-        <stop offset=".184" stop-color="#ecaa59"></stop>
-        <stop offset=".307" stop-color="#ef802e"></stop>
-        <stop offset=".358" stop-color="#ef6d3a"></stop>
-        <stop offset=".46" stop-color="#f04b50"></stop>
-        <stop offset=".516" stop-color="#f03e58"></stop>
-        <stop offset=".689" stop-color="#db359e"></stop>
-        <stop offset=".724" stop-color="#ce37a4"></stop>
-        <stop offset=".789" stop-color="#ac3cb4"></stop>
-        <stop offset=".877" stop-color="#7544cf"></stop>
-        <stop offset=".98" stop-color="#2b4ff2"></stop>
+        <stop offset=".073" stopColor="#eacc7b"></stop>
+        <stop offset=".184" stopColor="#ecaa59"></stop>
+        <stop offset=".307" stopColor="#ef802e"></stop>
+        <stop offset=".358" stopColor="#ef6d3a"></stop>
+        <stop offset=".46" stopColor="#f04b50"></stop>
+        <stop offset=".516" stopColor="#f03e58"></stop>
+        <stop offset=".689" stopColor="#db359e"></stop>
+        <stop offset=".724" stopColor="#ce37a4"></stop>
+        <stop offset=".789" stopColor="#ac3cb4"></stop>
+        <stop offset=".877" stopColor="#7544cf"></stop>
+        <stop offset=".98" stopColor="#2b4ff2"></stop>
       </radialGradient>
       <path
         fill="url(#TGwjmZMm2W~B4yrgup6jdb_119026_gr2)"

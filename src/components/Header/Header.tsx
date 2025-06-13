@@ -35,6 +35,17 @@ export const Header = () => {
     [],
   )
 
+  const insignificantItems = useMemo(
+    () => [
+      { to: "/", text: "↩ Котик" },
+      {
+        to: "/main",
+        text: "↩ Приветствие",
+      },
+    ],
+    [],
+  )
+
   useGSAP(() => {
     isMenuOpen
       ? BurgerAnimationOn({
@@ -80,6 +91,21 @@ export const Header = () => {
             </Link>
           </li>
         ))}
+        <li className="navigation__item">
+          <ul className="navigation__list-insignificant">
+            {insignificantItems.map(item => (
+              <li className="navigation__item" key={`${item.to} ${item.text}`}>
+                <Link
+                  to={item.to}
+                  className="navigation__link"
+                  onClick={() => toggleMenu(false)}
+                >
+                  <span className="navigation__text">{item.text}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
       </ul>
     </nav>
   )
