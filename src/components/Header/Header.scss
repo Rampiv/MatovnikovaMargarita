@@ -21,7 +21,7 @@
     box-shadow: -30px 0px 100px;
     background: $color1;
     display: none;
-   
+   z-index: 99;
   }
   &__list-insignificant {
     @include listReset();
