@@ -1,11 +1,10 @@
 @use "../../styles/style.scss" as *;
 
 .navigation {
-  position: fixed;
   width: 100%;
   height: 100%;
   padding: 5px 10px;
-  z-index: 100;
+
   &__list {
     @include listReset();
     @include flexible();
@@ -13,7 +12,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    position: absolute;
+    position: fixed;
     gap: 15px;
     overflow: hidden;
     top: 0;
@@ -22,6 +21,7 @@
     box-shadow: -30px 0px 100px;
     background: $color1;
     display: none;
+    z-index: 100;
   }
   &__list-insignificant {
     @include listReset();
