@@ -1,10 +1,10 @@
 import { useContext, useEffect, useMemo, useRef } from "react"
 import "./MainPage.scss"
 import { AppContext } from "../../context/contextProvider"
-import { Link } from "react-router"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ContentAnimation } from "@kit/ContentAnimation"
+import { CommonLink } from "../../components"
 
 gsap.registerPlugin(useGSAP)
 
@@ -16,6 +16,7 @@ export const MainPage = () => {
   const descrRefs = useRef<HTMLParagraphElement[]>([])
   const listItemsRef = useRef<HTMLLIElement[]>([])
   const tl = useRef<gsap.core.Timeline>()
+  const linkRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setRoute("/main")
@@ -88,9 +89,13 @@ export const MainPage = () => {
               key={`${item.to} ${item.text}`}
               ref={el => addToListRefs(el, index)}
             >
-              <Link to={item.to} className="mainpage__link">
-                <span className="mainpage__text">{item.text}</span>
-              </Link>
+              <CommonLink
+                data={{
+                  link: item.to,
+                  text: item.text,
+                }}
+                linkRef={linkRef}
+              />
             </li>
           ))}
         </ul>

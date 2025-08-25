@@ -53,6 +53,68 @@
   }
 }
 
+.firework {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ff9d00, #ff0000, #ff00cc);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 10px 2px rgba(255, 100, 255, 0.7),
+              0 0 20px 5px rgba(255, 255, 0, 0.5);
+  animation: explode 0.8s ease-out forwards;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: 50%;
+    animation: expand 0.8s ease-out forwards;
+    opacity: 0.7;
+  }
+
+  &::before {
+    box-shadow: 0 -5px 0 2px #00ffff, 5px 0 0 2px #00ff00, 0 5px 0 2px #ffff00, -5px 0 0 2px #0000ff;
+  }
+
+  &::after {
+    animation-delay: 0.1s;
+    box-shadow: 0 -8px 0 1px #ff00ff, 8px 0 0 1px #00ff88, 0 8px 0 1px #ffcc00, -8px 0 0 1px #0088ff;
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
 
 // z-index:
 // 0: catAnimation

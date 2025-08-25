@@ -11,7 +11,7 @@ interface Props {
 }
 export const CommonLink = ({ data, linkRef }: Props) => {
   return (
-    <div className="common-link" ref={linkRef}>
+    <div className={"common-link"} ref={linkRef}>
       <Link to={data.link} className="common-link__link">
         {data.text}
       </Link>

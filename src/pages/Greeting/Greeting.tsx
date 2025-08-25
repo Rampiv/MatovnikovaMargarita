@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
 import "./Greetings.scss"
-import { useRef, useCallback, useContext, useEffect } from "react"
+import { useRef, useCallback, useContext, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ArrowIcon, HeartIcon } from "@assets/icons"
@@ -26,6 +26,10 @@ export const Greeting = () => {
 
   const { setRoute } = useContext(AppContext)
 
+  const [fireworks, setFireworks] = useState<
+    Array<{ id: string; x: number; y: number }>
+  >([])
+
   useGSAP(
     () => {
       GreetingAnimation({
@@ -49,8 +53,17 @@ export const Greeting = () => {
     setRoute("/")
   }, [setRoute])
 
+  const mousemoveEvent = useCallback((event: React.MouseEvent) => {
+    const id = `${event.clientX}-${event.clientY}-${Date.now()}`
+    setFireworks(prev => [...prev, { id, x: event.clientX, y: event.clientY }])
+
+    setTimeout(() => {
+      setFireworks(fws => fws.filter(fw => fw.id !== id))
+    }, 1000)
+  }, [])
+
   return (
-    <section className="greeting" ref={greeting}>
+    <section className="greeting" ref={greeting} onMouseMove={mousemoveEvent}>
       <HeartIcon className="greeting__hearticon" refProp={HeartIconRef} />
       <CatAnimation refProp={CatRef} />
       <div
@@ -64,6 +77,19 @@ export const Greeting = () => {
           <ArrowIcon className="greeting__arrowicon" refProp={ArrowIconRef} />
         </button>
       </div>
+      {fireworks.map(firework => (
+        <div
+          key={firework.id}
+          className="firework"
+          style={{
+            left: `${firework.x}px`,
+            top: `${firework.y}px`,
+            position: "fixed",
+            pointerEvents: "none",
+            zIndex: 10,
+          }}
+        />
+      ))}
     </section>
   )
 }

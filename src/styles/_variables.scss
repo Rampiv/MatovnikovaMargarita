@@ -1,10 +1,12 @@
+@use "sass:color";
+
 $black: #000;
 $white: #fff;
 $color1: linear-gradient(87deg, #9271ec 0, #313860 100%);
 $color2: #313860;
 $color3: #825ee4;
-$color4: #D4C8B0;
+$color4: #d4c8b0;
+$color4hover: rgba($color4, 0.7);
+$color4focus: color.scale($color4, $lightness: -15%);
+$color4active: color.scale($color4, $lightness: -30%);
 
-
-// #1d213b
-// #252a4a
