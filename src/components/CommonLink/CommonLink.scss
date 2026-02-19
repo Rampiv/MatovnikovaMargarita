@@ -6,19 +6,11 @@
 
   &__link {
     @include flexible();
+    @include standartBtn();
 
-    padding: 10px;
-
-    border: none;
-    border-radius: 15px;
-
-    min-height: 50px;
-    max-width: 50%;
-    width: 100%;
-
-    background-color: $color4;
-
-    font-family: "Marutya", "sans-serif";
+    user-select: none;
+    font-family: inherit;
     text-align: center;
+    font-size: 1.5em;
   }
 }

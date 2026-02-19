@@ -33,8 +33,9 @@ export const EducationPage = () => {
   }
 
   return (
-    <section className="education">
+    <section className="education section-common">
       <div className="container" ref={containerRef}>
+              <div className="section__container">
         <h1 className="h1" ref={h1Ref}>
           Образование и деятельность
         </h1>
@@ -125,6 +126,7 @@ export const EducationPage = () => {
             }}
             linkRef={linkRef}
           />
+        </div>
         </div>
       </div>
     </section>

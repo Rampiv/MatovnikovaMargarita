@@ -43,8 +43,9 @@ export const CompetencePage = () => {
   }
 
   return (
-    <section className="competence">
+    <section className="competence section-common">
       <div className="container" ref={containerRef}>
+        <div className="section__container">
         <h1 className="h1" ref={h1Ref}>
           С чем я работаю?
         </h1>
@@ -103,7 +104,7 @@ export const CompetencePage = () => {
             linkRef={linkRef}
           />
         </div>
-      </div>
+      </div></div>
     </section>
   )
 }

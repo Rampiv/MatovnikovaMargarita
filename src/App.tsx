@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router"
 import { CompetencePage, ContactsPage, EducationPage, Greeting, MainPage, PaymentPage } from "./pages"
 import React from "react"
-import { Header } from "./components"
+import { Navigation } from "./components"
 import { AppContextProvider } from "./context/contextProvider"
 import "./App.scss"
 import { AboutPage } from "./pages"
 
 const GreetingMemo = React.memo(Greeting)
 const MainPageMemo = React.memo(MainPage)
-const HeaderMemo = React.memo(Header)
+const NavigationMemo = React.memo(Navigation)
 const AboutPageMemo = React.memo(AboutPage)
 const EducationPageMemo = React.memo(EducationPage)
 const CompetencePageMemo = React.memo(CompetencePage)
@@ -21,7 +21,7 @@ export default function App() {
     <div className="App">
       <AppContextProvider>
         <>
-          <HeaderMemo />
+          <NavigationMemo />
           <Routes>
             <Route path="/" element={<GreetingMemo />} />
             <Route path="/main" element={<MainPageMemo />} />

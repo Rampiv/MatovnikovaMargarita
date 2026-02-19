@@ -49,9 +49,10 @@ export const AboutPage = () => {
   }
 
   return (
-    <section className="about">
+    <section className="about section-common">
       <div className="container" ref={containerRef}>
-        <h1 className="h1" ref={h1Ref}>
+        <div className="section__container">
+          <h1 className="h1" ref={h1Ref}>
           Обо&nbsp;мне
         </h1>
         <ul className="about__list">
@@ -74,6 +75,7 @@ export const AboutPage = () => {
           }}
           linkRef={linkRef}
         />
+        </div>
       </div>
     </section>
   )

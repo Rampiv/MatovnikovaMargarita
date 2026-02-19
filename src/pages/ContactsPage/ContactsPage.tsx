@@ -46,8 +46,9 @@ export const ContactsPage = () => {
   }
 
   return (
-    <section className="contacts">
+    <section className="contacts section-common">
       <div className="container" ref={containerRef}>
+        <div className="section__container">
         <h1 className="h1" ref={h1Ref}>
           Контакты
         </h1>
@@ -127,6 +128,7 @@ export const ContactsPage = () => {
           *принадлежит компании Meta, признанной экстремистской и запрещённой на
           территории РФ
         </span>
+      </div>
       </div>
     </section>
   )
