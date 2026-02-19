@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 3%;
+    font-family: Alice;
+    font-size: 1.5em;
   }
 
   &__list {
@@ -29,6 +31,8 @@
     &-descr{
       display: block;
       text-align: center;
+      font-family: Alice;
+      font-size: 1.5em;
     }
   }
 }

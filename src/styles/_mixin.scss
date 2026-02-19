@@ -26,6 +26,33 @@
   outline: none;
 }
 
-@mixin standartTransition(){
+@mixin standartTransition() {
   transition: all ease-out 0.3s;
+}
+
+@mixin standartAnimZoom() {
+  @media (hover) {
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+  &:focus,
+  &:active {
+    transform: scale(1.03);
+    z-index: 2;
+  }
+}
+
+@mixin standartBtn() {
+  @include standartTransition();
+  padding: 10px 15px;
+  background-color: $color5;
+  border-radius: 3px;
+  color: $white;
+  &:hover {
+    background-color: $color5lighter;
+  }
+  &:active {
+    background-color: $color5darkner;
+  }
 }

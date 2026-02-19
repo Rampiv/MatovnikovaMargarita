@@ -1,9 +1,25 @@
-$black: #000;
-$white: #fff;
+@use "sass:color";
+
+
+
+
+$main: #100918;
+$text: white;
+$textLighter: #9a9a9a;
+$backgroundCard: #363440;
 $color1: linear-gradient(87deg, #9271ec 0, #313860 100%);
 $color2: #313860;
 $color3: #825ee4;
 $color4: #D4C8B0;
+
+$color5: rgb(226, 178, 157);
+$color5lighter: rgba(226, 178, 157, 0.5);
+$color5darkner: rgb(142, 111, 98);
+
+$white: #fff;
+$blue: rgba(37, 52, 65);
+$black: #000;
+
 
 
 // #1d213b

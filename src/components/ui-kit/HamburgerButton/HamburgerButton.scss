@@ -10,6 +10,10 @@
     padding: 12px;
     background: none;
     cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
   
     span {
     @include standartTransition();

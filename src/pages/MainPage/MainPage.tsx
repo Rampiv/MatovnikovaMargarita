@@ -1,100 +1,119 @@
-import { useContext, useEffect, useMemo, useRef } from "react"
+import { useContext, useEffect} from "react"
 import "./MainPage.scss"
 import { AppContext } from "../../context/contextProvider"
-import { Link } from "react-router"
-import { gsap } from "gsap"
-import { useGSAP } from "@gsap/react"
-import { ContentAnimation } from "@kit/ContentAnimation"
-
-gsap.registerPlugin(useGSAP)
+import { useHeroAnimations } from "../../hooks/useHeroAnimations"
+import { useWorkAnimations } from "../../hooks/useWorkAnimation"
+import { workList } from "../../data/workList"
+import { FAQList } from "../../data/FAQList"
+import { CollapseContent, CollapseHeader, CustomExpandIcon } from "../../components/Accordion/Accordion"
+import type { CollapseProps } from "antd";
+import { Collapse } from "antd"
+import { heroList } from "../../data/heroList"
+import psyImg from '@assets/image/psy.webp'
+import { MyGallery } from "../../components/Gallery"
+import { PaymentSection } from "../../components"
 
 export const MainPage = () => {
   const { setRoute } = useContext(AppContext)
-
-  const containerRef = useRef<HTMLDivElement>(null)
-  const h1Ref = useRef<HTMLHeadingElement>(null)
-  const descrRefs = useRef<HTMLParagraphElement[]>([])
-  const listItemsRef = useRef<HTMLLIElement[]>([])
-  const tl = useRef<gsap.core.Timeline>()
+  useHeroAnimations()
+  useWorkAnimations()
 
   useEffect(() => {
     setRoute("/main")
   }, [setRoute])
 
-  const navItems = useMemo(
-    () => [
-      { to: "/about", text: "Обо мне" },
-      { to: "/education", text: "Образование" },
-      { to: "/competence", text: "Компетенции" },
-      { to: "/payment", text: "Оплата" },
-      { to: "/contacts", text: "Контакты" },
-    ],
-    [],
+  const collapseWorkItems: CollapseProps["items"] = workList.map(
+    (item, index) => ({
+      key: String(index + 1),
+      label: <CollapseHeader img={item.img} name={item.name} />,
+      children: <CollapseContent descr={item.descr} link={item.link} />,
+    }),
   )
 
-  useGSAP(
-    () => {
-      tl.current = ContentAnimation({
-        h1Ref,
-        listItemsRef,
-        descrRefs,
-      })
-    },
-    { scope: containerRef },
+  const collapseFAQItems: CollapseProps["items"] = FAQList.map(
+    (item, index) => ({
+      key: String(index + 1),
+      label: <CollapseHeader name={item.name} />,
+      children: <CollapseContent descr={item.descr} link={item.link} />,
+    }),
   )
 
-  const addToDescrRefs = (el: HTMLParagraphElement | null, index: number) => {
-    if (el) descrRefs.current[index] = el
-  }
-
-  const addToListRefs = (el: HTMLLIElement | null, index: number) => {
-    if (el) listItemsRef.current[index] = el
-  }
 
   return (
-    <section className="mainpage">
-      <div className="container" ref={containerRef}>
-        <h1 className="h1" ref={h1Ref}>
-          Рада видеть вас на моей странице!
-        </h1>
-
-        <p className="mainpage__descr" ref={el => addToDescrRefs(el, 0)}>
-          Меня зовут{" "}
-          <span className="mainpage__descr-name">
-            Матовникова Маргарита Вадимовна
-          </span>
-        </p>
-
-        <p className="mainpage__descr" ref={el => addToDescrRefs(el, 1)}>
-          Этот сайт создан, чтобы вы могли заранее узнать, как я работаю и с
-          какими запросами помогаю.
-        </p>
-
-        <p className="mainpage__descr" ref={el => addToDescrRefs(el, 2)}>
-          Для навигации{" "}
-          <strong>нажмите кнопку меню в верхнем левом углу</strong> или с
-          помощью блоков снизу
-        </p>
-
-        <p className="mainpage__descr" ref={el => addToDescrRefs(el, 3)}>
-          Если у вас останутся вопросы после просмотра сайта — буду рада
-          ответить на них во время нашей первой встречи.
-        </p>
-
-        <ul className="mainpage__list">
-          {navItems.map((item, index) => (
-            <li
-              className="mainpage__item"
-              key={`${item.to} ${item.text}`}
-              ref={el => addToListRefs(el, index)}
-            >
-              <Link to={item.to} className="mainpage__link">
-                <span className="mainpage__text">{item.text}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+<>
+      <section className="hero section-common">
+        <div className="container">
+          <div className="section__container first-container">
+            <div className="hero__first-container">
+              <h2 className="hero__h2">С&nbsp;любовью и&nbsp;пониманием</h2>
+              <div className="hero__content">
+                <p className="hero__text">
+                  Меня зовут Маргарита, я клинический психолог и
+                  гештальт-терапевт
+                </p>
+                <ul className="hero__list">
+                  {heroList.map((item, index) => {
+                    return (
+                      <li className="hero__item" key={index}>
+                        <p className="hero__item-numbers">{item.num}</p>
+                        <p className="hero__item-text">{item.text}</p>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </div>
+            <picture className="hero__picture">
+              <img
+                src={psyImg}
+                alt="Фотография психолога"
+                className="hero__psychologist"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+      <section className="work section-background section-common">
+        <div className="container">
+          <div className="section__container">
+            <Collapse
+              accordion
+              ghost
+              items={collapseWorkItems}
+              className="work__collapse"
+              expandIcon={({ isActive }) => (
+                <CustomExpandIcon isActive={isActive ?? false} />
+              )}
+            />
+          </div>
+        </div>
+      </section>
+      <PaymentSection />
+      <section className="FAQ section-background section-common">
+        <div className="container">
+          <div className="section__container">
+            <h2 className="h2-common FAQ__h2">Часто задаваемые вопросы</h2>
+            <Collapse
+              accordion
+              ghost
+              items={collapseFAQItems}
+              className="work__collapse"
+              expandIcon={({ isActive }) => (
+                <CustomExpandIcon isActive={isActive ?? false} />
+              )}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="carousel section-common">
+        <div className="container">
+          <div className="section__container carousel__container">
+              <div className="carousel__block">
+                <MyGallery />
+              </div>
+          </div>
+        </div>
+      </section>
+      </>
   )
 }
