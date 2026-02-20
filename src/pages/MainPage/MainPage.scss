@@ -27,7 +27,7 @@
   &__h2 {
     @include flexible();
     text-align: center;
-    font-size: 6em;
+    font-size: 90px;
     font-weight: 400;
     margin-bottom: 40px;
   }
@@ -36,7 +36,7 @@
     @include flexible();
     flex-direction: column;
     justify-content: space-between;
-    font-size: 1.3em;
+    font-size: 25px;
     color: $textLighter;
     width: 100%;
   }
@@ -56,12 +56,12 @@
   &__item-numbers {
     @include flexible();
     color: $black;
-    font-size: 3em;
+    font-size: 50px;
   }
   &__item-text {
     @include flexible();
     justify-content: flex-start;
-    font-size: 1em;
+    font-size: 25px;
   }
 }
 
@@ -70,7 +70,7 @@
 }
 
 .carousel {
-  &__container{
+  &__container {
     @include flexible();
   }
   &__block {
@@ -79,9 +79,9 @@
   }
 }
 
-.FAQ{
-  &__h2{
-    padding: 20px 0;
+.FAQ {
+  &__h2 {
+    padding: 20px 0 0;
     color: $white;
   }
 }
@@ -94,4 +94,80 @@
 
 .first-container {
   height: 80vh;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    &__h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    &__content {
+      gap: 20px;
+    }
+    &__text {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    &__item-text {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .hero {
+    &__h2 {
+      font-size: 40px;
+    }
+
+    &__item-numbers {
+      font-size: 35px;
+    }
+    &__text,
+    &__item-text {
+      font-size: 16px;
+    }
+    &__list {
+      gap: 10px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .first-container {
+    flex-direction: column-reverse;
+  }
+  .hero {
+    &__picture {
+      width: 100%;
+    }
+    &__h2 {
+      font-size: 35px;
+      margin-bottom: 5px;
+    }
+    &__content {
+      gap: 5px;
+    }
+    &__list {
+      gap: 5px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .work {
+    padding: 0;
+  }
+  .FAQ {
+    &__h2 {
+      padding: 10px 0 0;
+    }
+  }
 }

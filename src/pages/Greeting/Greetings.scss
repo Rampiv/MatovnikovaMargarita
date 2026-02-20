@@ -46,14 +46,21 @@
     }
   }
 
-  &__h1{
+  &__h1 {
     @include textReset();
     text-align: center;
     margin-bottom: 0 !important;
+    padding: 0 20px;
   }
 }
 
-
+@media (max-width: 380px) {
+  .greeting {
+    &__content {
+      gap: 10px;
+    }
+  }
+}
 // z-index:
 // 0: catAnimation
 // 1: heartIcon

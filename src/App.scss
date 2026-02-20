@@ -49,7 +49,6 @@ body {
   background-attachment: fixed;
 }
 
-
 /* Global class*/
 .container {
   max-width: 1920px;
@@ -80,25 +79,42 @@ body {
   overflow: hidden;
 }
 
-.section__container {
-  padding: 20px 0;
-}
-
-.h2-common{
+.h2-common {
   @include flexible();
-  font-size: 3em;
+  font-size: 60px;
   margin-bottom: 20px;
+  text-align: center;
 }
-.section-background{
-    background-color: $blue;
+.section-background {
+  background-color: $blue;
 }
 
-.section-common{
+.section-common {
   padding: 20px;
   font-family: inherit;
 }
 
+@media (max-width: 980px) {
+  .h2-common {
+    font-size: 40px;
+  }
+}
 
+@media (max-width: 780px) {
+  .h1 {
+    font-size: 30px;
+  }
+}
 
-// z-index
-// 100 - navigation list
+@media (max-width: 380px) {
+  .h1 {
+    font-size: 25px;
+  }
+  .section-common {
+    padding: 10px;
+  }
+  .h2-common {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+}

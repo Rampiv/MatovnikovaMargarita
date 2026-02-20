@@ -41,10 +41,11 @@ export const MainPage = () => {
 
   return (
 <>
-      <section className="hero section-common">
+      <section className="section-common hero">
         <div className="container">
           <div className="section__container first-container">
             <div className="hero__first-container">
+              <h1 className="hide">Психолог Маргарита Матовникова</h1>
               <h2 className="hero__h2">С&nbsp;любовью и&nbsp;пониманием</h2>
               <div className="hero__content">
                 <p className="hero__text">
@@ -73,7 +74,7 @@ export const MainPage = () => {
           </div>
         </div>
       </section>
-      <section className="work section-background section-common">
+      <section className="section-background work">
         <div className="container">
           <div className="section__container">
             <Collapse
@@ -89,7 +90,7 @@ export const MainPage = () => {
         </div>
       </section>
       <PaymentSection />
-      <section className="FAQ section-background section-common">
+      <section className="section-background FAQ">
         <div className="container">
           <div className="section__container">
             <h2 className="h2-common FAQ__h2">Часто задаваемые вопросы</h2>
