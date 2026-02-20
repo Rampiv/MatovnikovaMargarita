@@ -4,7 +4,7 @@ export const PaymentSection = () =>{
     return       <section className="payment section-common" id="payment">
         <div className="container">
           <div className="section__container">
-            <h2 className="h2-common">СТОИМОСТЬ И ПОРЯДОК ОПЛАТЫ</h2>
+            <h2 className="h2-common">Стоимость и порядок оплаты</h2>
             <div className="payment__content">
               <p className="payment__text payment__text_margin">
                 Длительность консультации — <b>55</b> минут.
