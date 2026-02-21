@@ -1,0 +1,52 @@
+import { useRef } from "react"
+import "./AboutSection.scss"
+
+import { CommonLink } from "../../CommonLink"
+import { useTextBlockAnimations } from "../../../hooks/useTextBlockAnimations"
+interface Props {
+  isButton: boolean
+}
+
+export const AboutSection = ({ isButton }: Props) => {
+  const linkRef = useRef<HTMLDivElement>(null)
+    useTextBlockAnimations({start: "aboutAnim", elements: ["aboutH2Anim", "about__item"]})
+
+  const descriptionLines = [
+    "Friendly.",
+    "В работе ценю бережность и принятие человека таким, какой он есть.",
+    "Признаю и помогаю обрести людям их уникальность.",
+    "Каждый человек для меня — совершенно новая, непохожая на других исключительная история. 🌼",
+    "История же моей жизни связана не только с профессией, но и сценой.",
+    "На протяжении многих лет вокал был второй важнейшей стороной моей жизни после психологии, а выступления — неотъемлемой частью меня.",
+    "Поэтому как никто другой могу рассказать об опыте и сложностях преодоления страха публичных выступлений.",
+    "Поддерживаю и искренне верю в силы и возможности людей.",
+  ]
+
+  return (
+    <section className="about section-common aboutAnim">
+      <div className="container">
+        <div className="section__container">
+          <h2 className="h2-common aboutH2Anim">Обо&nbsp;мне</h2>
+          <ul className="about__list">
+            {descriptionLines.map((item, index) => {
+              return (
+                <li className="about__item" key={`${item}${index}`}>
+                  {item}
+                </li>
+              )
+            })}
+          </ul>
+          {isButton && (
+            <CommonLink
+              data={{
+                link: "/education",
+                text: "Образование и деятельность",
+              }}
+              linkRef={linkRef}
+            />
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}

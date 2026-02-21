@@ -2,6 +2,7 @@
 
 .greeting {
   padding: 0;
+  font-family: Inter;
   &__content {
     padding-bottom: 80px;
     min-height: 100vh;
@@ -46,11 +47,12 @@
     }
   }
 
-  &__h1 {
+  &__h2 {
     @include textReset();
     text-align: center;
     margin-bottom: 0 !important;
     padding: 0 20px;
+    font-size: 25px;
   }
 }
 
@@ -59,8 +61,22 @@
     &__content {
       gap: 10px;
     }
-    &__h1 {
+    &__h2 {
       padding: 0 5px;
+    }
+  }
+}
+@media (max-width: 380px) {
+  .greeting {
+    &__h2 {
+      font-size: 16px;
+    }
+    &__content {
+      flex-direction: column;
+    }
+    &__link{
+      width: 30px;
+      height: 30px;
     }
   }
 }

@@ -57,9 +57,9 @@ export const Greeting = () => {
         className="greeting__content content-common"
         ref={greetingContentRef}
       >
-        <h1 className="h1 greeting__h1">
+        <h2 className="greeting__h2">
           Это лучшее время, чтобы начать что-то делать
-        </h1>
+        </h2>
         <button className="greeting__link" onClick={onClick}>
           <ArrowIcon className="greeting__arrowicon" refProp={ArrowIconRef} />
         </button>

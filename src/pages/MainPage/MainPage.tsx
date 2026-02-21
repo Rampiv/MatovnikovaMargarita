@@ -1,26 +1,38 @@
-import { useContext, useEffect} from "react"
+import { useContext, useEffect, useState } from "react"
 import "./MainPage.scss"
 import { AppContext } from "../../context/contextProvider"
 import { useHeroAnimations } from "../../hooks/useHeroAnimations"
 import { useWorkAnimations } from "../../hooks/useWorkAnimation"
 import { workList } from "../../data/workList"
 import { FAQList } from "../../data/FAQList"
-import { CollapseContent, CollapseHeader, CustomExpandIcon } from "../../components/Accordion/Accordion"
-import type { CollapseProps } from "antd";
+import {
+  CollapseContent,
+  CollapseHeader,
+  CustomExpandIcon,
+} from "../../components/Accordion/Accordion"
+import type { CollapseProps } from "antd"
 import { Collapse } from "antd"
 import { heroList } from "../../data/heroList"
-import psyImg from '@assets/image/psy.webp'
+import psy1 from "@assets/image/psy/psy1.webp"
+import psy2 from "@assets/image/psy/psy2.webp"
 import { MyGallery } from "../../components/Gallery"
-import { PaymentSection } from "../../components"
+import { AboutSection, PaymentSection } from "../../components"
+
+const psyArray = [psy1, psy2]
 
 export const MainPage = () => {
   const { setRoute } = useContext(AppContext)
+  const [psyImg, setPsyImg] = useState("")
   useHeroAnimations()
   useWorkAnimations()
 
   useEffect(() => {
     setRoute("/main")
   }, [setRoute])
+
+  useEffect(() => {
+    setPsyImg(psyArray[Math.floor(Math.random() * psyArray.length)])
+  }, [])
 
   const collapseWorkItems: CollapseProps["items"] = workList.map(
     (item, index) => ({
@@ -38,19 +50,17 @@ export const MainPage = () => {
     }),
   )
 
-
   return (
-<>
+    <>
       <section className="section-common hero">
         <div className="container">
           <div className="section__container first-container">
             <div className="hero__first-container">
               <h1 className="hide">Психолог Маргарита Матовникова</h1>
-              <h2 className="hero__h2">С&nbsp;любовью и&nbsp;пониманием</h2>
               <div className="hero__content">
-                <p className="hero__text">
-                  Меня зовут Маргарита, я клинический психолог и
-                  гештальт-терапевт
+                <h2 className="hero__h2">Маргарита Матовникова</h2>
+                <p className="hero__descr">
+                  Клинический психолог, гештальт-терапевт
                 </p>
                 <ul className="hero__list">
                   {heroList.map((item, index) => {
@@ -90,6 +100,7 @@ export const MainPage = () => {
         </div>
       </section>
       <PaymentSection />
+      <AboutSection isButton={false}/>
       <section className="section-background FAQ">
         <div className="container">
           <div className="section__container">
@@ -109,12 +120,12 @@ export const MainPage = () => {
       <section className="carousel section-common">
         <div className="container">
           <div className="section__container carousel__container">
-              <div className="carousel__block">
-                <MyGallery />
-              </div>
+            <div className="carousel__block">
+              <MyGallery />
+            </div>
           </div>
         </div>
       </section>
-      </>
+    </>
   )
 }

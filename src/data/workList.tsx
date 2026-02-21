@@ -10,7 +10,7 @@ export const workList = [
     descr: (
       <>
         <p className="accordion__descr-text">
-          Формат один на один, где вы сможете
+          Формат один на один, где вы сможете:
         </p>
         <ul className="accordion__descr-list">
           <li>• разобраться в сложных жизненных периодах</li>
@@ -36,7 +36,7 @@ export const workList = [
     name: "Семейная терапия",
     descr: (
       <>
-        <p className="accordion__descr-text">Формат совместной работы для</p>
+        <p className="accordion__descr-text">Формат совместной работы для:</p>
         <ul className="accordion__descr-list">
           <li>• супругов</li>
           <li>• партнёров</li>
@@ -67,7 +67,7 @@ export const workList = [
         </p>
       </>
     ),
-    link: "payment",
+    link: "",
   },
   {
     img: TraningImg,
@@ -85,6 +85,6 @@ export const workList = [
         </p>
       </>
     ),
-    link: "payment",
+    link: "",
   },
 ]

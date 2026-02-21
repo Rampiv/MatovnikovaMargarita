@@ -36,7 +36,7 @@ export const CollapseContent = ({ descr, link }: CollapseContentProps) => {
           className="accordion__link"
           onClick={() => scrollToSection(link)}
         >
-          Цена
+          Оплата
         </button>
       )}
     </div>
