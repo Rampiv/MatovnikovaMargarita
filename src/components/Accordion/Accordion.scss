@@ -21,7 +21,7 @@
     }
   }
   &__header-name {
-    font-size: 25px;
+    font-size: 35px;
   }
   &__collapse-content {
     @include flexible();
@@ -33,21 +33,41 @@
     gap: 20px;
   }
   &__content-descr {
-    font-size: 16px;
+    font-size: 30px;
   }
   &__link {
     @include standartBtn();
     @include flexible();
     max-height: 60px;
-    font-size: 25px;
+    font-size: 30px;
     max-width: 300px;
     width: 100%;
     border: none;
     cursor: pointer;
   }
+  &__descr-text {
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
   &__descr-list {
     @include listReset();
     padding-left: 20px;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: 1475px) {
+  .accordion {
+    &__header-name {
+      font-size: 30px;
+    }
+    &__content-descr,
+    &__link {
+      font-size: 25px;
+    }
   }
 }
 
@@ -63,14 +83,13 @@
       padding: 10px;
     }
     &__header-name {
+      font-size: 25px;
+    }
+    &__content-descr,
+    &__link {
       font-size: 20px;
     }
-    &__descr-text,
-    &__descr-list {
-      font-size: 16px;
-    }
     &__link {
-      font-size: 16px;
       max-width: 200px;
     }
   }
@@ -87,6 +106,13 @@
     &__collapse-header {
       padding: 5px;
     }
+    &__header-name {
+      font-size: 20px;
+    }
+    &__content-descr,
+    &__link {
+      font-size: 16px;
+    }
   }
 }
 
@@ -98,16 +124,15 @@
         height: 30px;
       }
     }
-    &__header-name {
-      font-size: 1em;
-    }
-    &__descr-text,
-    &__descr-list {
-      font-size: 0.6em;
-    }
     &__link {
       padding: 5px;
-      font-size: 0.8em;
+    }
+    &__header-name {
+      font-size: 16px;
+    }
+    &__content-descr,
+    &__link {
+      font-size: 13px;
     }
   }
 }

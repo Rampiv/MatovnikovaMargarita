@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react"
 import "./MainPage.scss"
 import { AppContext } from "../../context/contextProvider"
 import { useHeroAnimations } from "../../hooks/useHeroAnimations"
-import { useWorkAnimations } from "../../hooks/useWorkAnimation"
 import { workList } from "../../data/workList"
 import { FAQList } from "../../data/FAQList"
 import {
@@ -16,7 +15,7 @@ import { heroList } from "../../data/heroList"
 import psy1 from "@assets/image/psy/psy1.webp"
 import psy2 from "@assets/image/psy/psy2.webp"
 import { MyGallery } from "../../components/Gallery"
-import { AboutSection, PaymentSection } from "../../components"
+import { AboutSection, ContactsSection, PaymentSection } from "../../components"
 
 const psyArray = [psy1, psy2]
 
@@ -24,7 +23,6 @@ export const MainPage = () => {
   const { setRoute } = useContext(AppContext)
   const [psyImg, setPsyImg] = useState("")
   useHeroAnimations()
-  useWorkAnimations()
 
   useEffect(() => {
     setRoute("/main")
@@ -46,7 +44,7 @@ export const MainPage = () => {
     (item, index) => ({
       key: String(index + 1),
       label: <CollapseHeader name={item.name} />,
-      children: <CollapseContent descr={item.descr} link={item.link} />,
+      children: <CollapseContent descr={item.descr} link={item.link} linkName={item?.linkName}/>,
     }),
   )
 
@@ -117,7 +115,7 @@ export const MainPage = () => {
           </div>
         </div>
       </section>
-      <section className="carousel section-common">
+      <section className="carousel section-common" id="gallery">
         <div className="container">
           <div className="section__container carousel__container">
             <div className="carousel__block">
@@ -126,6 +124,7 @@ export const MainPage = () => {
           </div>
         </div>
       </section>
+      <ContactsSection />
     </>
   )
 }

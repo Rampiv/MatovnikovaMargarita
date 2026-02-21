@@ -2,15 +2,12 @@ import { useRef } from "react"
 import "./AboutSection.scss"
 
 import { CommonLink } from "../../CommonLink"
-import { useTextBlockAnimations } from "../../../hooks/useTextBlockAnimations"
 interface Props {
   isButton: boolean
 }
 
 export const AboutSection = ({ isButton }: Props) => {
   const linkRef = useRef<HTMLDivElement>(null)
-    useTextBlockAnimations({start: "aboutAnim", elements: ["aboutH2Anim", "about__item"]})
-
   const descriptionLines = [
     "Friendly.",
     "В работе ценю бережность и принятие человека таким, какой он есть.",

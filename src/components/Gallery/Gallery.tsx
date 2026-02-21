@@ -50,6 +50,8 @@ export function MyGallery() {
       autoPlay={false}
       showNav={false}
       thumbnailPosition="left"
+      showFullscreenButton={false}
+      showPlayButton={false}
     />
   )
 }

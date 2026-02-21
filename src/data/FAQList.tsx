@@ -1,22 +1,6 @@
 export const FAQList = [
   {
     img: "",
-    name: "Очная встреча и дистанционная",
-    descr: (
-      <>
-        <p className="accordion__descr-text">
-          Очно: Встретимся в моем уютном кабинете г. Рязань
-        </p>
-        <p className="accordion__descr-text">
-          Дистанционно: телемост и подобные сервисы, которые не имеют
-          ограничений в скорости.
-        </p>
-      </>
-    ),
-    link: "",
-  },
-  {
-    img: "",
     name: "Наши встречи конфиденциальны?",
     descr: (
       <>
@@ -48,5 +32,21 @@ export const FAQList = [
       </>
     ),
     link: "",
+  },
+  {
+    img: "",
+    name: "Очно или онлайн?",
+    descr: (
+      <>
+        <p className="accordion__descr-text">
+          Онлайн: мы выберем подходящую платформу для видеосвязи
+        </p>
+        <p className="accordion__descr-text">
+          Очно: мы встретимся в моем уютном оборудованном кабинете в г.Рязань
+        </p>
+      </>
+    ),
+    link: "gallery",
+    linkName: "К кабинету"
   },
 ]

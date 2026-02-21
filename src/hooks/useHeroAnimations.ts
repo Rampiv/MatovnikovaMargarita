@@ -12,7 +12,7 @@ export const useHeroAnimations = () => {
       const firstContainerTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero__first-container",
-          start: "top 80%",
+          start: "top 100%",
           toggleActions: "play none none none", // проиграть один раз
         },
       })
@@ -26,7 +26,7 @@ export const useHeroAnimations = () => {
       const psychologistTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero__picture",
-          start: "top 80%",
+          start: "top 100%",
           toggleActions: "play none none none",
         },
       })
@@ -40,7 +40,7 @@ export const useHeroAnimations = () => {
       const plusTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero__list",
-          start: "top 80%",
+          start: "top 100%",
           toggleActions: "play none none none",
         },
       })

@@ -19,9 +19,10 @@ export const CollapseHeader = ({ img, name }: CollapseHeaderProps) => {
 interface CollapseContentProps {
   descr: string | JSX.Element
   link: string
+  linkName?: string
 }
 
-export const CollapseContent = ({ descr, link }: CollapseContentProps) => {
+export const CollapseContent = ({ descr, link, linkName }: CollapseContentProps) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -36,7 +37,7 @@ export const CollapseContent = ({ descr, link }: CollapseContentProps) => {
           className="accordion__link"
           onClick={() => scrollToSection(link)}
         >
-          Оплата
+          {linkName ?? "Оплата"}
         </button>
       )}
     </div>
