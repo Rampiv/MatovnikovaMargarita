@@ -14,7 +14,7 @@ export const useTextBlockAnimations = ({ start, elements }: Props) => {
       const textBlockTl = gsap.timeline({
         scrollTrigger: {
           trigger: `.${start}`,
-          start: "top 80%",
+          start: "top 100%",
         },
       })
 

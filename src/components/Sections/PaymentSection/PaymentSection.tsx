@@ -1,8 +1,6 @@
-import { useTextBlockAnimations } from "../../../hooks/useTextBlockAnimations"
 import "./PaymentSection.scss"
 
 export const PaymentSection = () => {
-  useTextBlockAnimations({start: "paymentAnim", elements: ["paymentH2Anim", "payment__text"]})
   return (
     <section className="payment section-common paymentAnim" id="payment">
       <div className="container">

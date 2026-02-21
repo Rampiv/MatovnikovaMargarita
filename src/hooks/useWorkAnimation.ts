@@ -10,7 +10,7 @@ export const useWorkAnimations = () => {
     const workTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".work",
-        start: "top 80%",
+        start: "top 100%",
       },
     })
     workTl.fromTo(
