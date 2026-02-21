@@ -1,0 +1,20 @@
+.image-gallery-thumbnail-image {
+  object-fit: cover;
+}
+
+.image-gallery-slide {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-gallery-image {
+  max-height: 80vh !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 380px) {
+  .image-gallery-thumbnail-image {
+    height: 40px;
+  }
+}

@@ -36,7 +36,7 @@ export const EducationPage = () => {
     <section className="education section-common">
       <div className="container" ref={containerRef}>
               <div className="section__container">
-        <h1 className="h1" ref={h1Ref}>
+        <h1 className="h2-common" ref={h1Ref}>
           Образование и деятельность
         </h1>
 
