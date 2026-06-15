@@ -116,7 +116,11 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
+  .ant-collapse-header {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
   .accordion {
     &__header-img {
       svg {
@@ -128,11 +132,11 @@
       padding: 5px;
     }
     &__header-name {
-      font-size: 16px;
+      @include textTypeText1Mobile();
     }
     &__content-descr,
     &__link {
-      font-size: 13px;
+      @include textTypeTextMobile();
     }
   }
 }

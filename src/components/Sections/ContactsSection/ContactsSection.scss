@@ -74,13 +74,13 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .contacts {
     &__common {
-      font-size: 16px;
+      @include textTypeText1Mobile();
     }
     &__img-descr {
-      font-size: 16px;
+      @include textTypeTextMobile();
     }
     &__img {
       height: 50px;

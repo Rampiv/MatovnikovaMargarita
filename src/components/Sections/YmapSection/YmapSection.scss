@@ -1,0 +1,12 @@
+@use "../../../styles/style.scss" as *;
+
+.ymap {
+  &__content {
+    @include flexible();
+    padding: 20px;
+  }
+  &__map {
+    height: 500px;
+    width: 100%;
+  }
+}

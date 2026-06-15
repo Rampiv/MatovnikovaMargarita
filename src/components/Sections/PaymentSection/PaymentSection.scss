@@ -1,3 +1,5 @@
+@use "../../../styles/style.scss" as *;
+
 .payment {
   &__text {
     font-size: 30px;
@@ -23,10 +25,10 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .payment {
     &__text {
-      font-size: 16px;
+      @include textTypeText1Mobile();
     }
   }
 }

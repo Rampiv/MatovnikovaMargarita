@@ -56,3 +56,28 @@
     background-color: $color5darkner;
   }
 }
+
+@mixin textStandart() {
+  font-family: Alice;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin textTypeTitleMobile() {
+  @include textStandart();
+  & {
+    font-size: 25px;
+  }
+}
+@mixin textTypeTextMobile() {
+  @include textStandart();
+  & {
+    font-size: 14px;
+  }
+}
+@mixin textTypeText1Mobile() {
+  @include textStandart();
+  & {
+    font-size: 16px;
+  }
+}
