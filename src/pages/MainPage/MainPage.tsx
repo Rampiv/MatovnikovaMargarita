@@ -15,7 +15,12 @@ import { heroList } from "../../data/heroList"
 import psy1 from "@assets/image/psy/psy1.webp"
 import psy2 from "@assets/image/psy/psy2.webp"
 import { MyGallery } from "../../components/Gallery"
-import { AboutSection, ContactsSection, PaymentSection } from "../../components"
+import {
+  AboutSection,
+  ContactsSection,
+  PaymentSection,
+  YmapSection,
+} from "../../components"
 
 const psyArray = [psy1, psy2]
 
@@ -31,6 +36,11 @@ export const MainPage = () => {
   useEffect(() => {
     setPsyImg(psyArray[Math.floor(Math.random() * psyArray.length)])
   }, [])
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      
+    }, 500)
+  })
 
   const collapseWorkItems: CollapseProps["items"] = workList.map(
     (item, index) => ({
@@ -44,7 +54,13 @@ export const MainPage = () => {
     (item, index) => ({
       key: String(index + 1),
       label: <CollapseHeader name={item.name} />,
-      children: <CollapseContent descr={item.descr} link={item.link} linkName={item?.linkName}/>,
+      children: (
+        <CollapseContent
+          descr={item.descr}
+          link={item.link}
+          linkName={item?.linkName}
+        />
+      ),
     }),
   )
 
@@ -98,7 +114,7 @@ export const MainPage = () => {
         </div>
       </section>
       <PaymentSection />
-      <AboutSection isButton={false}/>
+      <AboutSection isButton={false} />
       <section className="section-background FAQ">
         <div className="container">
           <div className="section__container">
@@ -124,6 +140,7 @@ export const MainPage = () => {
           </div>
         </div>
       </section>
+      <YmapSection />
       <ContactsSection />
     </>
   )
