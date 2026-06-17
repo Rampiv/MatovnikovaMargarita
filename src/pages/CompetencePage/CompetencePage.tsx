@@ -8,6 +8,28 @@ import { ContentAnimation } from "@kit/ContentAnimation"
 
 gsap.registerPlugin(useGSAP)
 
+const competenceDescr = [
+  "Вы можете обратиться ко мне с широким спектром запросов.",
+  "Перечислю основные из них:",
+]
+
+const competenceList = [
+  "Работа с самооценкой и неуверенностью в себе;",
+  "поиск себя и личностный рост (сложности с выбором и принятием решений);",
+  "Детско-родительские отношения, вопросы сеппарации;",
+  "Конфликты и трудности в отношениях (в семье, между партнерами, в рабочем коллективе и т.д.);",
+  "Эмоциональная зависимость от другого (сложности с расставанием)",
+  "Кризисные ситуации (расставания, потеря работы и т.д.);",
+  "Потеря, смерть близкого;",
+  "Работа с травматичным опытом (в том числе птср, кптср, военная травма);",
+  "Трудности с пониманием себя, в выражении эмоций;",
+  "Профориентация;",
+  "Эмоциональное выгорание;",
+  "Работа с телом, психосоматика;",
+  "Тревога и депрессивные состояния;",
+  "Расстройства пищевого поведения (булимия, анорексия, переедания)",
+]
+
 export const CompetencePage = () => {
   const { setRoute } = useContext(AppContext)
 
@@ -46,65 +68,43 @@ export const CompetencePage = () => {
     <section className="competence section-common">
       <div className="container" ref={containerRef}>
         <div className="section__container">
-        <h1 className="h1" ref={h1Ref}>
-          С чем я работаю?
-        </h1>
+          <h2 className="h2-common" ref={h1Ref}>
+            С чем я работаю?
+          </h2>
 
-        <p className="competence__descr" ref={el => addToDescrRefs(el, 0)}>
-          Вы можете обратиться ко мне с широким спектром запросов.
-        </p>
+          {competenceDescr.map((text, index) => (
+            <p
+              key={index}
+              className="competence__descr"
+              ref={el => addToDescrRefs(el, index)}
+            >
+              {text}
+            </p>
+          ))}
 
-        <p className="competence__descr" ref={el => addToDescrRefs(el, 1)}>
-          Перечислю основные из них:
-        </p>
+          <ul className="competence__list">
+            {competenceList.map((text, index) => (
+              <li
+                key={index}
+                className="competence__item"
+                ref={el => addToListRefs(el, index)}
+              >
+                ✔️ {text}
+              </li>
+            ))}
+          </ul>
 
-        <ul className="competence__list">
-          <li className="competence__item" ref={el => addToListRefs(el, 0)}>
-            ✔️ Работа с самооценкой и неуверенностью в себе;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 1)}>
-            ✔️ Поиск себя и личностный рост;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 2)}>
-            ✔️ Детско-родительские отношения;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 3)}>
-            ✔️ Конфликты и трудности в отношениях (в семье, между партнерами, в
-            рабочем коллективе и т.д.);
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 4)}>
-            ✔️ Кризисные ситуации (расставания, потеря работы и т.д.);
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 5)}>
-            ✔️ Работа с травматичным опытом;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 6)}>
-            ✔️ Трудности в выражении эмоций; профориентация;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 7)}>
-            ✔️ Эмоциональное выгорание;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 8)}>
-            ✔️ Работа с телом, психосоматика;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 9)}>
-            ✔️ Тревога и депрессивные состояния;
-          </li>
-          <li className="competence__item" ref={el => addToListRefs(el, 10)}>
-            ✔️ Расстройства пищевого поведения
-          </li>
-        </ul>
-
-        <div ref={linkRef}>
-          <CommonLink
-            data={{
-              link: "/payment",
-              text: "Стоимость и порядок оплаты",
-            }}
-            linkRef={linkRef}
-          />
+          <div ref={linkRef}>
+            <CommonLink
+              data={{
+                link: "/payment",
+                text: "Стоимость и порядок оплаты",
+              }}
+              linkRef={linkRef}
+            />
+          </div>
         </div>
-      </div></div>
+      </div>
     </section>
   )
 }
