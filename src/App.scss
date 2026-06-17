@@ -89,6 +89,7 @@ body {
   font-size: 60px;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
 }
 .section-background {
   background-color: $blue;
@@ -97,8 +98,9 @@ body {
 .section-common {
   padding: 20px;
   font-family: inherit;
+  margin-bottom: 10px;
 }
-.margin-bottom{
+.margin-bottom {
   margin-bottom: 5px;
 }
 
@@ -123,6 +125,8 @@ body {
   }
   .h2-common {
     @include textTypeTitleMobile();
-    margin-bottom: 10px;
+    & {
+      margin-bottom: 10px;
+    }
   }
 }

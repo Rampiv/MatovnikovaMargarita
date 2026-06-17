@@ -1,11 +1,11 @@
 import { gsap } from "gsap"
-import type { LottieRefCurrentProps } from "lottie-react"
+import type { AnimationItem } from "lottie-web"
 import type { RefObject } from "react"
 
 interface GreetingAnimationProps {
   heartIconRef: RefObject<SVGSVGElement>
   greetingContentRef: RefObject<HTMLDivElement>
-  catRef: React.RefObject<LottieRefCurrentProps>
+  catContainerRef: RefObject<HTMLDivElement>
 }
 
 interface ExitAnimationProps {
@@ -17,7 +17,7 @@ interface ExitAnimationProps {
 export const GreetingAnimation = ({
   heartIconRef,
   greetingContentRef,
-  catRef,
+  catContainerRef,
 }: GreetingAnimationProps) => {
   const tl = gsap.timeline({
     defaults: { ease: "power2.inOut" },
@@ -41,7 +41,7 @@ export const GreetingAnimation = ({
       duration: 0.5,
     })
     .to(
-      catRef.current?.animationContainerRef.current || {},
+      catContainerRef.current,
       {
         opacity: 0,
         duration: 0.3,

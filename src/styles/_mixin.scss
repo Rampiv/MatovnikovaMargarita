@@ -62,6 +62,12 @@
   font-weight: 400;
   font-style: normal;
 }
+@mixin textTypeTitle05Mobile() {
+  @include textStandart();
+  & {
+    font-size: 20px;
+  }
+}
 
 @mixin textTypeTitleMobile() {
   @include textStandart();
@@ -69,6 +75,7 @@
     font-size: 25px;
   }
 }
+
 @mixin textTypeTextMobile() {
   @include textStandart();
   & {
@@ -81,3 +88,4 @@
     font-size: 16px;
   }
 }
+

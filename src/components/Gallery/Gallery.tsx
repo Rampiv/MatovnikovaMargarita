@@ -1,57 +1,27 @@
-import { useRef } from "react"
-import ImageGallery from "react-image-gallery"
-import "react-image-gallery/styles/image-gallery.css"
-import type { GalleryItem, ImageGalleryRef } from "react-image-gallery"
-import room1 from "@assets/image/room/1.webp"
-import room2 from "@assets/image/room/2.webp"
-import room3 from "@assets/image/room/3.webp"
-import room4 from "@assets/image/room/4.webp"
-import room5 from "@assets/image/room/5.webp"
-
+import { Carousel } from "antd"
 import "./Gallery.scss"
 
-const images: GalleryItem[] = [
-  {
-    original: room3,
-    thumbnail: room3,
-    thumbnailHeight: "65px",
-  },
-  {
-    original: room2,
-    thumbnail: room2,
-    thumbnailHeight: "65px",
-  },
-  {
-    original: room1,
-    thumbnail: room1,
-    thumbnailHeight: "65px",
-  },
-  {
-    original: room4,
-    thumbnail: room4,
-    thumbnailHeight: "65px",
-  },
-  {
-    original: room5,
-    thumbnail: room5,
-    thumbnailHeight: "65px",
-  },
-]
+interface Prop {
+  arrayImg: string[]
+  speedImg: number
+}
 
-export function MyGallery() {
-  const galleryRef = useRef<ImageGalleryRef>(null)
-
+export function MyGallery({ arrayImg, speedImg }: Prop) {
   return (
-    <ImageGallery
-      ref={galleryRef}
-      items={images}
-      infinite={true}
-      lazyLoad={true}
-      autoPlay={false}
-      showNav={false}
-      thumbnailPosition="left"
-      showFullscreenButton={false}
-      showPlayButton={false}
-    />
+    <div className="carousel-content">
+      <Carousel autoplay autoplaySpeed={speedImg} draggable infinite>
+        {arrayImg.map((item, index) => {
+          return (
+            <div key={`карусель ${index} ${item}`}>
+              <img
+                src={item}
+                alt="Картинка кабинета 1"
+                className="carousel__img"
+              />
+            </div>
+          )
+        })}
+      </Carousel>
+    </div>
   )
 }

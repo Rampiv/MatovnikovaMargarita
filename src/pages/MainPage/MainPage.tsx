@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import "./MainPage.scss"
 import { AppContext } from "../../context/contextProvider"
 import { useHeroAnimations } from "../../hooks/useHeroAnimations"
@@ -21,26 +21,23 @@ import {
   PaymentSection,
   YmapSection,
 } from "../../components"
+import room1 from "@assets/image/room/1.webp"
+import room2 from "@assets/image/room/2.webp"
+import room3 from "@assets/image/room/3.webp"
+import room4 from "@assets/image/room/4.webp"
+import room5 from "@assets/image/room/5.webp"
 
 const psyArray = [psy1, psy2]
+const roomArray = [room1, room2, room3, room4, room5]
 
 export const MainPage = () => {
   const { setRoute } = useContext(AppContext)
-  const [psyImg, setPsyImg] = useState("")
+
   useHeroAnimations()
 
   useEffect(() => {
     setRoute("/main")
   }, [setRoute])
-
-  useEffect(() => {
-    setPsyImg(psyArray[Math.floor(Math.random() * psyArray.length)])
-  }, [])
-  useEffect(()=>{
-    const timer = setTimeout(()=>{
-      
-    }, 500)
-  })
 
   const collapseWorkItems: CollapseProps["items"] = workList.map(
     (item, index) => ({
@@ -88,13 +85,9 @@ export const MainPage = () => {
                 </ul>
               </div>
             </div>
-            <picture className="hero__picture">
-              <img
-                src={psyImg}
-                alt="Фотография психолога"
-                className="hero__psychologist"
-              />
-            </picture>
+            <div className="hero__picture">
+              <MyGallery arrayImg={psyArray} speedImg={5000} />
+            </div>
           </div>
         </div>
       </section>
@@ -135,7 +128,7 @@ export const MainPage = () => {
         <div className="container">
           <div className="section__container carousel__container">
             <div className="carousel__block">
-              <MyGallery />
+              <MyGallery arrayImg={roomArray} speedImg={5000} />
             </div>
           </div>
         </div>

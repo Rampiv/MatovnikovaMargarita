@@ -4,20 +4,18 @@
   &__list {
     @include listReset();
     @include flexible();
-    flex-direction: column;
-    align-items: flex-start;
+    & {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__item {
     font-size: 30px;
+    margin-bottom: 10px;
     &:nth-child(1) {
       font-weight: bold;
-    }
-
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(7) {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
   }
 }
@@ -33,7 +31,7 @@
 @media (max-width: 400px) {
   .about {
     &__item {
-     @include textTypeText1Mobile();
+      @include textTypeText1Mobile();
     }
   }
 }
