@@ -9,5 +9,5 @@ export const ContactsPage = () => {
     setRoute("/contacts")
   }, [setRoute])
 
-  return <ContactsSection />
+  return <ContactsSection animated={true} />
 }

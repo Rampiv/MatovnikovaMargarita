@@ -7,7 +7,7 @@ export const AboutPage = () => {
 
   useEffect(() => {
     setRoute("/about")
-  })
+  }, [setRoute])
 
-  return <AboutSection isButton={true} />
+  return <AboutSection isButton={true} animated={true} />
 }

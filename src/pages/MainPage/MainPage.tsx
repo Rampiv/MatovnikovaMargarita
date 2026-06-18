@@ -64,7 +64,7 @@ export const MainPage = () => {
   return (
     <>
       <section className="section-common hero">
-        <div className="container">
+        <div className="container-hero">
           <div className="section__container first-container">
             <div className="hero__first-container">
               <h1 className="hide">Психолог Маргарита Матовникова</h1>
@@ -107,7 +107,7 @@ export const MainPage = () => {
         </div>
       </section>
       <PaymentSection />
-      <AboutSection isButton={false} />
+      <AboutSection isButton={false} animated={false} />
       <section className="section-background FAQ">
         <div className="container">
           <div className="section__container">

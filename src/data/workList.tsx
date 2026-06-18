@@ -40,7 +40,7 @@ export const workList = [
         <ul className="accordion__descr-list">
           <li>• супругов</li>
           <li>• партнёров</li>
-          <li>• родителей и взрослых детей (14+ до ∞)</li>
+          <li>• родителей и взрослых детей (14+)</li>
         </ul>
         <p className="accordion__descr-text">Семейная терапия помогает:</p>
         <ul className="accordion__descr-list">

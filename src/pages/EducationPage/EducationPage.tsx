@@ -6,8 +6,37 @@ import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ContentAnimation } from "@kit/ContentAnimation"
 import { MyGallery } from "../../components/Gallery"
+import ed1 from "@assets/image/education/1.webp"
+import ed2 from "@assets/image/education/2.webp"
+import ed3 from "@assets/image/education/3.webp"
+import ed4 from "@assets/image/education/4.webp"
+import ed5 from "@assets/image/education/5.webp"
+import ed6 from "@assets/image/education/6.webp"
+import ed7 from "@assets/image/education/7.webp"
+import ed8 from "@assets/image/education/8.webp"
+import ed9 from "@assets/image/education/9.webp"
+import ed10 from "@assets/image/education/10.webp"
+import ed11 from "@assets/image/education/11.webp"
+import ed12 from "@assets/image/education/12.webp"
+import ed13 from "@assets/image/education/13.webp"
 
 gsap.registerPlugin(useGSAP)
+
+const diplomsList = [
+  ed1,
+  ed2,
+  ed3,
+  ed4,
+  ed5,
+  ed6,
+  ed7,
+  ed8,
+  ed9,
+  ed10,
+  ed11,
+  ed12,
+  ed13,
+]
 
 const educationList = [
   {
@@ -146,6 +175,7 @@ export const EducationPage = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const h1Ref = useRef<HTMLHeadingElement>(null)
   const listItemsRef = useRef<HTMLLIElement[]>([])
+  const galleryRef = useRef<HTMLDivElement>(null)
   const linkRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline>()
 
@@ -155,7 +185,12 @@ export const EducationPage = () => {
 
   useGSAP(
     () => {
-      tl.current = ContentAnimation({ h1Ref, listItemsRef, linkRef })
+      tl.current = ContentAnimation({
+        h1Ref,
+        listItemsRef,
+        additionalRefs: [galleryRef.current],
+        linkRef,
+      })
     },
     { scope: containerRef },
   )
@@ -184,7 +219,13 @@ export const EducationPage = () => {
             ))}
           </ul>
 
-          <MyGallery arrayImg={[]} speedImg={0} />
+          <MyGallery
+            linkRef={galleryRef}
+            arrayImg={diplomsList}
+            speedImg={5000}
+            customClassImg="education__img"
+            customClassContainer="education__img-container"
+          />
 
           <div ref={linkRef}>
             <CommonLink

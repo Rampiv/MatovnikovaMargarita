@@ -91,6 +91,7 @@
 
 .work {
   color: $text;
+  margin-bottom: 40px;
 }
 
 .carousel {
@@ -109,10 +110,13 @@
 }
 
 .FAQ {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   &__h2 {
-    padding: 20px 0 0;
+    padding: 10px 0;
     color: $white;
+    border-bottom: 1px solid $color5;
+    margin-bottom: 0 !important;
+
   }
 }
 
@@ -216,11 +220,7 @@
   .work {
     padding: 0;
   }
-  .FAQ {
-    &__h2 {
-      padding: 10px 0 0;
-    }
-  }
+
 
   .hero {
     &__h2 {

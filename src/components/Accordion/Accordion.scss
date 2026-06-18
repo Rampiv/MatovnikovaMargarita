@@ -52,6 +52,7 @@
     }
   }
   &__descr-text {
+    @include textTypeText();
     &:not(:last-child) {
       margin-bottom: 5px;
     }
@@ -147,6 +148,9 @@
     }
     &__content-descr,
     &__link {
+      @include textTypeTextMobile();
+    }
+    &__descr-text {
       @include textTypeTextMobile();
     }
   }

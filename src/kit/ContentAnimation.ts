@@ -2,10 +2,10 @@ import { gsap } from "gsap"
 import type { RefObject } from "react"
 
 interface Props {
-  h1Ref: RefObject<HTMLHeadingElement>
-  listItemsRef: RefObject<HTMLLIElement[]>
-  linkRef?: RefObject<HTMLDivElement>
-  descrRefs?: RefObject<HTMLParagraphElement[]>
+  h1Ref?: RefObject<HTMLElement>
+  listItemsRef?: RefObject<HTMLElement[]>
+  linkRef?: RefObject<HTMLElement>
+  descrRefs?: RefObject<HTMLElement[]>
   additionalRefs?: (HTMLElement | null)[]
   reverseAnimation?: boolean
 }
@@ -16,21 +16,21 @@ export const ContentAnimation = ({
   linkRef,
   descrRefs,
   additionalRefs = [],
-  reverseAnimation
+  reverseAnimation = false,
 }: Props) => {
   const tl = gsap.timeline({
     defaults: { ease: "power2.inOut" },
   })
 
-  // Анимация заголовка
-  tl.from(h1Ref.current, {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-  })
+  if (h1Ref?.current) {
+    tl.from(h1Ref.current, {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+    })
+  }
 
-  // Анимация дополнительных описаний (если есть)
-  if (descrRefs?.current) {
+  if (descrRefs?.current && descrRefs.current.length > 0) {
     tl.from(
       descrRefs.current,
       {
@@ -39,11 +39,10 @@ export const ContentAnimation = ({
         stagger: 0.15,
         duration: 0.6,
       },
-      "-=0.4"
+      "-=0.4",
     )
   }
 
-  // Анимация дополнительных элементов (если есть)
   const validAdditionalRefs = additionalRefs.filter(Boolean) as HTMLElement[]
   if (validAdditionalRefs.length > 0) {
     tl.from(
@@ -54,32 +53,32 @@ export const ContentAnimation = ({
         stagger: 0.1,
         duration: 0.6,
       },
-      "-=0.3"
+      "-=0.3",
     )
   }
 
-  // Анимация элементов списка
-  tl.from(
-    listItemsRef.current,
-    {
-      y: 30,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.6,
-    },
-    "-=0.4"
-  )
-
-  // Анимация ссылки
-  if (linkRef) {
+  if (listItemsRef?.current && listItemsRef.current.length > 0) {
     tl.from(
-      linkRef?.current,
+      listItemsRef.current,
+      {
+        y: 30,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.6,
+      },
+      "-=0.4",
+    )
+  }
+
+  if (linkRef?.current) {
+    tl.from(
+      linkRef.current,
       {
         y: 20,
         opacity: 0,
         duration: 0.5,
       },
-      "-=0.2"
+      "-=0.2",
     )
   }
 
