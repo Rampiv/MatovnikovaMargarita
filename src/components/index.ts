@@ -1,3 +1,9 @@
 export { Navigation } from "./Navigation"
 export { CommonLink } from "./CommonLink"
-export { PaymentSection, AboutSection, ContactsSection,YmapSection } from "./Sections"
+export {
+  PaymentSection,
+  AboutSection,
+  ContactsSection,
+  YmapSection,
+} from "./Sections"
+export { ScrollToTop } from "./ScrollToTop"

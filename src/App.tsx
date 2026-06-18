@@ -8,7 +8,7 @@ import {
   PaymentPage,
 } from "./pages"
 import React from "react"
-import { Navigation } from "./components"
+import { Navigation, ScrollToTop } from "./components"
 import { AppContextProvider } from "./context/contextProvider"
 import "./App.scss"
 import { AboutPage } from "./pages"
@@ -25,6 +25,7 @@ const ContactsPageMemo = React.memo(ContactsPage)
 export default function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <AppContextProvider>
         <>
           <NavigationMemo />

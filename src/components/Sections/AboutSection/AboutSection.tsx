@@ -1,13 +1,40 @@
 import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import { gsap } from "gsap"
 import "./AboutSection.scss"
-
 import { CommonLink } from "../../CommonLink"
+import { ContentAnimation } from "@kit/ContentAnimation"
+
+gsap.registerPlugin(useGSAP)
+
 interface Props {
   isButton: boolean
+  animated?: boolean // ← новый пропс
 }
 
-export const AboutSection = ({ isButton }: Props) => {
+export const AboutSection = ({ isButton, animated = false }: Props) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const h2Ref = useRef<HTMLHeadingElement>(null)
+  const listItemsRef = useRef<HTMLLIElement[]>([])
   const linkRef = useRef<HTMLDivElement>(null)
+
+  // Анимация только если animated=true
+  useGSAP(
+    () => {
+      if (!animated) return
+      ContentAnimation({
+        h1Ref: h2Ref,
+        listItemsRef,
+        linkRef: isButton ? linkRef : undefined,
+      })
+    },
+    { scope: containerRef, dependencies: [animated] },
+  )
+
+  const addToListRefs = (el: HTMLLIElement | null, index: number) => {
+    if (el) listItemsRef.current[index] = el
+  }
+
   const descriptionLines = [
     "Квир-френдли.",
     "Сейчас за плечами у меня больше 6 лет практики и несколько лет личной терапии (в которой я по сей день).",
@@ -17,27 +44,33 @@ export const AboutSection = ({ isButton }: Props) => {
   ]
 
   return (
-    <section className="about section-common aboutAnim">
+    <section className="about section-common" ref={containerRef}>
       <div className="container">
         <div className="section__container">
-          <h2 className="h2-common aboutH2Anim">Обо&nbsp;мне</h2>
+          <h2 ref={h2Ref} className="h2-common">
+            Обо&nbsp;мне
+          </h2>
           <ul className="about__list">
-            {descriptionLines.map((item, index) => {
-              return (
-                <li className="about__item" key={`${item}${index}`}>
-                  {item}
-                </li>
-              )
-            })}
+            {descriptionLines.map((item, index) => (
+              <li
+                className="about__item"
+                key={`${item}${index}`}
+                ref={el => addToListRefs(el, index)}
+              >
+                {item}
+              </li>
+            ))}
           </ul>
           {isButton && (
-            <CommonLink
-              data={{
-                link: "/education",
-                text: "Образование и деятельность",
-              }}
-              linkRef={linkRef}
-            />
+            <div ref={linkRef}>
+              <CommonLink
+                data={{
+                  link: "/education",
+                  text: "Образование и деятельность",
+                }}
+                linkRef={linkRef}
+              />
+            </div>
           )}
         </div>
       </div>

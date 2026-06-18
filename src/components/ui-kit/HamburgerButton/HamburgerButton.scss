@@ -1,6 +1,7 @@
-@use '../../../styles/style.scss' as *;
+@use "../../../styles/style.scss" as *;
 .hamburger {
-    @include flexible();
+  @include flexible();
+  & {
     flex-direction: column;
     transform-origin: 16px 11px;
     float: left;
@@ -14,52 +15,53 @@
     top: 0;
     left: 0;
     z-index: 2;
-  
-    span {
+  }
+
+  span {
     @include standartTransition();
-    }
-  
-    &:focus {
-      border: none;
-      outline: 0;
-    }
-  
-    &:hover {
-      span:nth-of-type(1) {
-        width: 33px;
-      }
-  
-      span:nth-of-type(2) {
-        width: 40px;
-      }
-  
-      span:nth-of-type(3) {
-        width: 30px;
-      }
-    }
-  
-    &.active {
-      span:nth-of-type(1) {
-        transform: rotate(45deg) translate(10px, 10px);
-        width: 40px;
-      }
-  
-      span:nth-of-type(2) {
-        opacity: 0;
-        pointer-events: none;
-      }
-  
-      span:nth-of-type(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-        width: 40px;
-      }
+  }
+
+  &:focus {
+    border: none;
+    outline: 0;
+  }
+
+  &:hover {
+    span:nth-of-type(1) {
+      width: 33px;
     }
 
-    &__span{
-        display: block;
-        width: 40px;
-        height: 5px;
-        margin-bottom: 7px;
-        background-color: $color3; 
+    span:nth-of-type(2) {
+      width: 40px;
     }
+
+    span:nth-of-type(3) {
+      width: 30px;
+    }
+  }
+
+  &.active {
+    span:nth-of-type(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+      width: 40px;
+    }
+
+    span:nth-of-type(2) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    span:nth-of-type(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+      width: 40px;
+    }
+  }
+
+  &__span {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 7px;
+    background: $color1;
+  }
 }

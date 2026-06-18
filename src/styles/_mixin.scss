@@ -80,12 +80,20 @@
   @include textStandart();
   & {
     font-size: 14px;
+    line-height: 17px;
   }
 }
 @mixin textTypeText1Mobile() {
   @include textStandart();
   & {
     font-size: 16px;
+  }
+}
+@mixin textTypeText() {
+  @include textStandart();
+  & {
+    font-size: 30px;
+    line-height: 33px;
   }
 }
 

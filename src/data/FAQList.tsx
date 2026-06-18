@@ -18,6 +18,22 @@ export const FAQList = [
   },
   {
     img: "",
+    name: "Очно или онлайн?",
+    descr: (
+      <>
+        <p className="accordion__descr-text">
+          Онлайн: мы выберем подходящую платформу для видеосвязи
+        </p>
+        <p className="accordion__descr-text">
+          Очно: мы встретимся в моем уютном оборудованном кабинете в г.Рязань
+        </p>
+      </>
+    ),
+    link: "gallery",
+    linkName: "К кабинету",
+  },
+  {
+    img: "",
     name: "О чем я могу говорить на сессиях?",
     descr: (
       <>
@@ -32,21 +48,5 @@ export const FAQList = [
       </>
     ),
     link: "",
-  },
-  {
-    img: "",
-    name: "Очно или онлайн?",
-    descr: (
-      <>
-        <p className="accordion__descr-text">
-          Онлайн: мы выберем подходящую платформу для видеосвязи
-        </p>
-        <p className="accordion__descr-text">
-          Очно: мы встретимся в моем уютном оборудованном кабинете в г.Рязань
-        </p>
-      </>
-    ),
-    link: "gallery",
-    linkName: "К кабинету"
   },
 ]
