@@ -10,7 +10,7 @@ export const ScrollToTop = () => {
         left: 0,
         behavior: "smooth",
       })
-    }, 100)
+    }, 200)
 
     return () => clearTimeout(timer)
   }, [])
